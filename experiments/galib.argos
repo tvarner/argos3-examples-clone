@@ -23,7 +23,6 @@
   <!-- * Controllers * -->
   <!-- *************** -->
   <controllers>
-
     <footbot_nn_controller id="fnn"
                            library="build/controllers/footbot_nn/libfootbot_nn">
       <actuators>
@@ -36,7 +35,6 @@
       <params num_inputs="48"
               num_outputs="2" />
     </footbot_nn_controller>
-
   </controllers>
 
   <!-- ****************** -->

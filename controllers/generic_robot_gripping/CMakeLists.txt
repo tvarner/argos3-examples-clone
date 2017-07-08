@@ -1,0 +1,4 @@
+add_library(generic_robot_gripping MODULE generic_robot_gripping.h generic_robot_gripping.cpp)
+target_link_libraries(generic_robot_gripping
+  argos3core_simulator
+  argos3plugin_simulator_genericrobot)

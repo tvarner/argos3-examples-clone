@@ -1,0 +1,27 @@
+!SESSION 2017-05-27 20:41:37.523 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -product org.eclipse.epp.package.cpp.product -keyring /Users/tvarner/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.cpp.product -data /Users/tvarner/Documents/argos3-examples -product org.eclipse.epp.package.cpp.product -keyring /Users/tvarner/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2017-05-27 20:41:39.924
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2017-05-27 20:46:05.334 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -keyring /Users/tvarner/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.cpp.product -keyring /Users/tvarner/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2017-05-27 20:46:12.863
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.core.resources 4 77 2017-05-27 20:46:54.690
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2017-05-27 20:46:54.690
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2017-05-27 20:46:54.690
+!MESSAGE /Users/tvarner/Documents/argos3-examples overlaps the workspace location: /Users/tvarner/Documents/argos3-examples

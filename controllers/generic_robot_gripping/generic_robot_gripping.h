@@ -1,0 +1,90 @@
+/*
+ * AUTHOR: Thomas Varner <thomas.g.varner@gmail.com>
+ *
+ * An example gripping controller for the a generic robot.
+ *
+ * [TODO: describe simulation and steps taken in simulation]:
+ *
+ * This controller is meant to be used with the ARGoS file:
+ *    experiments/generic_gripping.argos
+ */
+
+#ifndef GENERIC_ROBOT_GRIPPING_H
+#define GENERIC_ROBOT_GRIPPING_H
+
+/*
+ * Include some necessary headers.
+ */
+/* Definition of the CCI_Controller class. */
+#include <argos3/core/control_interface/ci_controller.h>
+/* Definition of the generic differential steering actuator */
+#include <argos3/plugins/robots/generic/control_interface/ci_differential_steering_actuator.h>
+/* Definition of the generic gripper actuator */
+#include <argos3/plugins/robots/generic/control_interface/ci_gripper_actuator.h>
+/* Definition of the generic position sensor */
+#include <argos3/plugins/robots/generic/control_interface/ci_positioning_sensor.h>
+
+/*
+ * All the ARGoS stuff in the 'argos' namespace.
+ * With this statement, you save typing argos:: every time.
+ */
+using namespace argos;
+
+/*
+ * A controller is simply an implementation of the CCI_Controller class.
+ */
+class CGenericBotGripping : public CCI_Controller {
+
+public:
+
+   /* Class constructor. */
+   CGenericBotGripping();
+
+   /* Class destructor. */
+   virtual ~CGenericBotGripping() {}
+
+   /*
+    * This function initializes the controller.
+    * The 't_node' variable points to the <parameters> section in the XML
+    * file in the <controllers><footbot_gripping_controller> section.
+    */
+   virtual void Init(TConfigurationNode& t_node);
+
+   /*
+    * This function is called once every time step.
+    * The length of the time step is set in the XML file.
+    */
+   virtual void ControlStep();
+
+   /*
+    * This function resets the controller to its state right after the
+    * Init().
+    * It is called when you press the reset button in the GUI.
+    * In this example controller there is no need for resetting anything,
+    * so the function could have been omitted. It's here just for
+    * completeness.
+    */
+   virtual void Reset();
+
+   /*
+    * Called to cleanup what done by Init() when the experiment finishes.
+    * In this example controller there is no need for clean anything up,
+    * so the function could have been omitted. It's here just for
+    * completeness.
+    */
+   virtual void Destroy() {}
+
+private:
+
+   /* Pointer to the differential steering actuator */
+   CCI_DifferentialSteeringActuator* m_pcWheels;
+   /* Pointer to the generic gripper actuator */
+   CCI_GripperActuator* m_pcGripper;
+     /* Pointer to the positioning sensor */
+   CCI_PositioningSensor* m_pcPosSens;
+
+   /* A counter used to know when to trigger each action */
+   UInt64 m_unCounter;
+};
+
+#endif

@@ -19,6 +19,83 @@
   </framework>
 
   <!-- *************** -->
+  <!-- *     URDF    * -->
+  <!-- *************** -->
+  <robot name="robo_cop">
+
+    <joint name="my_joint" type="floating">
+      <origin xyz="0 0 1" rpy="0 0 3.1416"/>
+      <parent link="link1"/>
+      <child link="link2"/>
+      <calibration rising="0.0" />
+      <dynamics damping="0.0" friction="0.0"/>
+      <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" />
+      <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-2.0" soft_upper_limit="0.5" />
+    </joint>
+
+    <link name="link1">
+      <inertial name="link_inertial1">
+        <origin xyz="0 0 0.5" rpy="0 0 0"/>
+        <mass value="1"/>
+        <inertia ixx="100"  ixy="0"  ixz="0" iyy="100" iyz="0" izz="100" />
+      </inertial>
+      <visual name="link_visual1">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="1 1 1" />
+          <cylinder radius="5.0" length="4" />
+          <sphere radius="2.3" />
+          <mesh filename="link_mesh_fileName1"/>
+        </geometry>
+        <material name="Cyan">
+          <color rgba="0 1.0 1.0 1.0" />
+          <texture filename="link_material_texture1" />
+        </material>
+      </visual>
+      <collision name="link_collision1">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="1 1 1" />
+          <cylinder radius="5.0" length="4" />
+          <sphere radius="2.3" />
+          <mesh filename="link_mesh_fileName1"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link2">
+      <inertial name="link_inertial2">
+        <origin xyz="0 0 0.5" rpy="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="100"  ixy="0"  ixz="0" iyy="100" iyz="0" izz="100" />
+      </inertial>
+      <visual name="link_visual2">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="1 1 2" />
+          <cylinder radius="5.0" length="4" />
+          <sphere radius="2.3" />
+          <mesh filename="link_mesh_fileName2"/>
+        </geometry>
+        <material name="Cyan">
+          <color rgba="0 1.0 1.0 1.0"/>
+          <texture filename="link_material_texture2" />
+        </material>
+      </visual>
+      <collision name="link_collision2">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="1 1 2" />
+          <cylinder radius="5.0" length="4" />
+          <sphere radius="2.3" />
+          <mesh filename="link_mesh_fileName2"/>
+        </geometry>
+      </collision>
+    </link>
+
+  </robot>
+
+  <!-- *************** -->
   <!-- * Controllers * -->
   <!-- *************** -->
   <controllers>
@@ -33,7 +110,6 @@
       </sensors>
       <params alpha="7.5" delta="0.1" velocity="5" />
     </footbot_diffusion_controller>
-
   </controllers>
 
   <!-- ****************** -->

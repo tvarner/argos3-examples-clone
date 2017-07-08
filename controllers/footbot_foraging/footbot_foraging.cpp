@@ -1,3 +1,5 @@
+
+#include <iostream>
 /* Include the controller definition */
 #include "footbot_foraging.h"
 /* Function definitions for XML parsing */
@@ -131,6 +133,12 @@ void CFootBotForaging::Init(TConfigurationNode& t_node) {
       /*
        * Parse XML parameters
        */
+
+      std::string strValue;
+      GetNodeAttribute(GetNode(t_node, "random_node"), "some_value", strValue);
+      LOG << strValue << std::endl;
+
+
       /* Diffusion algorithm */
       m_sDiffusionParams.Init(GetNode(t_node, "diffusion"));
       /* Wheel turning */
